@@ -15,7 +15,7 @@ const Homepage = () => {
           <a href="#contact">Contact</a>
         </section>
 
-        <div className={style.container}>
+        <div className={style.container_div}>
           <section className={style.left_container}>
             <h1>Hi, I'm Pradeep Varma</h1>
             <h3>Full Stack Developer</h3>
