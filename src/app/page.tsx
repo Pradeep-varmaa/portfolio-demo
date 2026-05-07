@@ -138,11 +138,6 @@ const Homepage = () => {
                 Enhanced accessibility and performance to support large-scale awareness and engagement in diabetes education.
               </p>
             </div>
-
-            <div className={style.icons}>
-              <a href="#"><GithubOutlined /></a>
-              <a href="#"><LinkOutlined /></a>
-            </div>
           </div>
 
           <img className={style.image} src="/IDF_PRIMARY1.png" alt="" />
@@ -162,8 +157,8 @@ const Homepage = () => {
             </div>
 
             <div className={style.icons}>
-              <a href="#"><GithubOutlined /></a>
-              <a href="#"><LinkOutlined /></a>
+              <a href="https://github.com/Pradeep-varmaa/weather-checking"><GithubOutlined /></a>
+              <a href="https://weather-forcasting-opal.vercel.app/"><LinkOutlined /></a>
             </div>
           </div>
 
@@ -184,8 +179,8 @@ const Homepage = () => {
             </div>
 
             <div className={style.icons}>
-              <a href="#"><GithubOutlined /></a>
-              <a href="#"><LinkOutlined /></a>
+              <a href="https://github.com/Pradeep-varmaa/Myrepo"><GithubOutlined /></a>
+              <a href="https://my-location-one.vercel.app/"><LinkOutlined /></a>
             </div>
           </div>
 
@@ -206,8 +201,8 @@ const Homepage = () => {
             </div>
 
             <div className={style.icons}>
-              <a href="#"><GithubOutlined /></a>
-              <a href="#"><LinkOutlined /></a>
+              <a href="https://github.com/Pradeep-varmaa/English-dictionary"><GithubOutlined /></a>
+              <a href="https://english-dictionary-silk.vercel.app"><LinkOutlined /></a>
             </div>
           </div>
 
