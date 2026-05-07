@@ -2,39 +2,49 @@
 
 import React, { useState, useEffect } from 'react'
 import style from './page.module.css'
-import {message} from 'antd'
+import { message } from 'antd'
 import { FaReact, FaPython, FaHtml5, FaCss3Alt, FaDatabase } from "react-icons/fa";
 import { SiNextdotjs, SiJavascript, SiMysql } from "react-icons/si";
+import { useRouter } from 'next/navigation';
 import { EnvironmentOutlined, MailOutlined, PhoneOutlined, GithubOutlined, LinkOutlined, CodeOutlined } from "@ant-design/icons"
 
 const Homepage = () => {
 
+  const router = useRouter()
   const [name, setName] = useState('')
   const [mail, setMail] = useState('')
   const [msg, setMsg] = useState('')
+  const [data, setData] = useState<any>([])
+
+  async function GetData() {
+    const req = await fetch('/api/data')
+    const res = await req.json()
+    setData(res.response)
+  }
 
   useEffect(() => {
     async function InsertIp() {
       const req = await fetch('/api/get')
     }
     InsertIp()
+    GetData()
   }, [])
 
-  const submitform = async (e:React.FormEvent)=>{
+  const submitform = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const req = await fetch('/api/send-mail',{
-      method:"POST",
-      headers:{
-        'content-type' : "application/json"
+    const req = await fetch('/api/send-mail', {
+      method: "POST",
+      headers: {
+        'content-type': "application/json"
       },
-      body:JSON.stringify({name, mail, msg})
+      body: JSON.stringify({ name, mail, msg })
     })
     const res = await req.json()
     setMail('')
     setMsg('')
     setName('')
-    res.success? message.success("We Received Your Request") : message.error("Something Went Wrong!")
+    res.success ? message.success("We Received Your Request") : message.error("Something Went Wrong!")
   }
   return (
     <section className={style.global}>
@@ -50,7 +60,7 @@ const Homepage = () => {
           <section className={style.left_container}>
             <h1>Hi, I'm Pradeep Varma</h1>
             <h3>Full Stack Developer</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore dolor expedita quae perferendis nobis minus. Provident tempora aspernatur magni adipisci nostrum, labore totam tempore maiores dignissimos exercitationem voluptatum eaque soluta.</p>
+            <p>A Passionated Full-Stack Developer with expertise in Next.js, React, Express.js, and Python, passionate about building scalable and user-friendly web applications. </p>
             <a className={style.contact_btn} href='#contact'>Contact</a>
           </section>
           <section className={style.right_container}>
@@ -66,8 +76,12 @@ const Homepage = () => {
           <h1 className={style.headings}>
             About
           </h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo quod laboriosam reiciendis itaque exercitationem odit, sunt dolor maiores architecto veritatis harum et odio. Nihil ab quo rerum iste quia perferendis.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur adipisci quae ea consequuntur, unde et asperiores temporibus, enim nobis quo, modi nam vel quas tenetur accusamus dolorem provident repellat? Doloremque.
+          <p>
+            I am a motivated Full-Stack Developer with expertise in Next.js, React, Express.js, and Python, passionate about building scalable and user-friendly web applications. I enjoy transforming ideas into real digital solutions with clean architecture and intuitive interfaces.
+<br /><br />
+            My focus is on creating responsive front-end experiences combined with efficient back-end logic, databases, and authentication systems. I follow best practices to write clean, maintainable, and performance-oriented code.
+<br /><br />
+            As an IEEE member and a Kabaddi team lead, I have developed leadership, teamwork, and communication skills that help me collaborate effectively in professional environments.
           </p>
         </div>
         <div className={style.skills}>
@@ -232,7 +246,7 @@ const Homepage = () => {
             <h1 className={style.headings}>
               Drop me a message
             </h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum unde nulla error accusantium eveniet. Impedit, a dolorum optio inventore doloribus ea nesciunt eaque explicabo ex, voluptate laboriosam repudiandae eum ab.</p>
+            <p>I’m always open to discussing new opportunities, innovative projects, and meaningful collaborations. Whether you’re looking to build a modern web application, develop scalable software solutions, or simply connect and share ideas, I’d be glad to hear from you. Feel free to reach out through the form or contact details below, and I’ll respond as soon as possible with professionalism and dedication.</p>
             <div className={style.social_icons}>
               <PhoneOutlined /> {' '} +91 9618795584
             </div>
@@ -243,16 +257,20 @@ const Homepage = () => {
               <EnvironmentOutlined /> {' '} Raghavendhra colony C-Block, Kondapur, Hyderabad
               {/* <EnvironmentOutlined /> {' '} L B Cherla, Narasapuram, West Godavari, Andhra Pradesh */}
             </div>
+            <div className={style.logs}>
+              Total Visits : {data.length}
+              <button  className={style.log_btn} onClick={()=>{router.push('/track-visits')}}>View Logs</button>
+            </div>
           </div>
           <div className={style.contact_form}>
 
             <form action="" onSubmit={submitform}>
               <label htmlFor="name">Name</label>
-              <input type="text" name='name' id='name' placeholder='John Doe' value={name} onChange={(e)=>{setName(e.target.value)}}  required/>
+              <input type="text" name='name' id='name' placeholder='John Doe' value={name} onChange={(e) => { setName(e.target.value) }} required />
               <label htmlFor="name">Email</label>
-              <input type="email" name='mail' id='mail' placeholder='Johndoe@mail.com' value={mail} onChange={(e)=>{setMail(e.target.value)}} required/>
+              <input type="email" name='mail' id='mail' placeholder='Johndoe@mail.com' value={mail} onChange={(e) => { setMail(e.target.value) }} required />
               <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows={5} placeholder='How can i help you?' value={msg} onChange={(e)=>{setMsg(e.target.value)}}></textarea>
+              <textarea name="message" id="message" rows={5} placeholder='How can i help you?' value={msg} onChange={(e) => { setMsg(e.target.value) }}></textarea>
               <button type='submit' className={style.contact_btn}>Send message</button>
             </form>
           </div>
@@ -265,3 +283,5 @@ const Homepage = () => {
 }
 
 export default Homepage
+
+// https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png

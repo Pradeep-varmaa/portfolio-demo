@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Josefin_Sans, Ubuntu } from "next/font/google";
 import "./globals.css";
+import "leaflet/dist/leaflet.css";
 
 const josefin = Josefin_Sans({
   variable: "--font-josefin",

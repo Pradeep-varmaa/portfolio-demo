@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
     try{
 
-        const request = await pool.query('select * from playing_with_neon')
+        const request = await pool.query('select * from portfolio_visits')
         const response = await request.rows
         console.log(response)
 
