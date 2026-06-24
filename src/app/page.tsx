@@ -64,7 +64,7 @@ const Homepage = () => {
             <a className={style.contact_btn} href='#contact'>Contact</a>
           </section>
           <section className={style.right_container}>
-            <img src="/picture-nobg.png" alt="" />
+            <img src="/mypic-removebg-preview.png" alt="" />
           </section>
 
         </div>
