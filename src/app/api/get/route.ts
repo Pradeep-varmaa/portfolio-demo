@@ -1,6 +1,8 @@
 import pool from "@/lib/db";
 
 export async function GET(request: Request) {
+
+  console.log(request.headers)
   let ip =
     request.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
     request.headers.get("x-real-ip") ||
