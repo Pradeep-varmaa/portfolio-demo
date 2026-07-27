@@ -57,7 +57,9 @@
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
-  max-width: 1450px;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1600px;
   margin: 0 auto;
   background: linear-gradient(
     135deg,
@@ -67,6 +69,41 @@
     rgb(128, 40, 146) 75%,
     rgb(89, 107, 149) 100%
   );
+}
+
+/* Large desktops / wide monitors */
+@media (min-width: 1920px) {
+  .global {
+    max-width: 1920px;
+  }
+}
+
+/* Standard desktops / laptops */
+@media (max-width: 1550px) {
+  .global {
+    max-width: 100%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .global {
+    padding: 0 16px;
+  }
+}
+
+/* Mobile landscape / small tablets */
+@media (max-width: 768px) {
+  .global {
+    padding: 0 12px;
+  }
+}
+
+/* Mobile portrait */
+@media (max-width: 480px) {
+  .global {
+    padding: 0 8px;
+  }
 }
 
 .global::-webkit-scrollbar {
