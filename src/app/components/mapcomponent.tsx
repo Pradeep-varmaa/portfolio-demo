@@ -39,8 +39,8 @@ export default function MapComponent({ data }: any) {
         <Marker
           key={el.id || index}
           position={[
-            Number(el.latitude),
             Number(el.longitude),
+            Number(el.latitude),
           ]}
           icon={customIcon}
         >
