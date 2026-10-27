@@ -1,7 +1,6 @@
 
 import type { Metadata } from "next";
 import { Josefin_Sans, Ubuntu } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
@@ -29,16 +28,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${josefin.variable} ${ubuntu.variable}`}>
-      <body className={ubuntu.className}>
-        {children}
-
-        <Script
-          id="google-adsense"
+      <head>
+        <script
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4784641470229803"
-          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
-      </body>
+      </head>
+      <body className={ubuntu.className}>{children}</body>
     </html>
   );
 }
