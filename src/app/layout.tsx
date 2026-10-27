@@ -25,8 +25,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${josefin.variable} ${ubuntu.variable}`}>
-      <body className={ubuntu.className}>{children}</body>
+<html lang="en" className={`${josefin.variable} ${ubuntu.variable}`}>
+      <body className={ubuntu.className}>
+        {children}
+
+        <Script
+          id="google-adsense"
+          async
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4784641470229803"
+        />
+      </body>
     </html>
   );
 }
