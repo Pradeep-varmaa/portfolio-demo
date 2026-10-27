@@ -13,6 +13,7 @@
     "antd": "^6.3.7",
     "leaflet": "^1.9.4",
     "next": "^16.2.5",
+    "node-tesseract-ocr": "^2.2.1",
     "nodemailer": "^8.0.7",
     "pg": "^8.20.0",
     "react": "^19.2.6",

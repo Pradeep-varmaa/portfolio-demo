@@ -1,5 +1,7 @@
+
 import type { Metadata } from "next";
 import { Josefin_Sans, Ubuntu } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
@@ -8,15 +10,16 @@ const josefin = Josefin_Sans({
   subsets: ["latin"],
 });
 
-
 const ubuntu = Ubuntu({
-  weight: ["300", "400", "500", "700"], // choose what you need
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
-  variable: "--font-ubuntu", // optional (for CSS variable usage)
+  variable: "--font-ubuntu",
 });
+
 export const metadata: Metadata = {
   title: "Pothabathula Pradeep Varma | Full Stack Developer",
-  description: "Full Stack Developer skilled in React, Express.js, and Python. Passionate about building scalable web applications and real-world projects.",
+  description:
+    "Full Stack Developer skilled in React, Express.js, and Python. Passionate about building scalable web applications and real-world projects.",
 };
 
 export default function RootLayout({
@@ -25,16 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<html lang="en" className={`${josefin.variable} ${ubuntu.variable}`}>
+    <html lang="en" className={`${josefin.variable} ${ubuntu.variable}`}>
       <body className={ubuntu.className}>
         {children}
 
         <Script
           id="google-adsense"
-          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4784641470229803"
           strategy="afterInteractive"
           crossOrigin="anonymous"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4784641470229803"
         />
       </body>
     </html>
